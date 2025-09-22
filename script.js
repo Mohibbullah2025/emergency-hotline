@@ -21,7 +21,7 @@ for(let serviceBtn of serviceBtns){
       alert("কল করার জন্য কমপক্ষে ২০ টা কয়েন প্রয়োজন!")
       return;
     }
-    alert(serviceName + " " + serviceNumber)
+    alert("কলিং" + " " + serviceName + " " + serviceNumber)
     const updatedCoin = currentCoin-callFee;
     getElement("coin").innerText=updatedCoin;
     const historyContainer = getElement("call-history");
