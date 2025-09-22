@@ -27,7 +27,7 @@ for(let serviceBtn of serviceBtns){
     const historyContainer = getElement("call-history");
     const newHistory = document.createElement("div");
     newHistory.innerHTML =`
-       <div class="flex justify-between mt-5">
+       <div class="flex justify-between mt-5 p-3">
       <div>
       <h1 class="text-xl">${serviceName}</h1>
       <p>${serviceNumber}</p>
@@ -54,13 +54,26 @@ const copyBtns = document.getElementsByClassName("btn-copy");
 for(let copyBtn of copyBtns){
   copyBtn.addEventListener("click", function(){
     const hotlineNumber = copyBtn.parentNode.parentNode.children[3].innerText;
-    
+
+       navigator.clipboard?.writeText(hotlineNumber) || (t => {
+      const a = document.createElement("textarea");
+      a.value = t;
+      document.body.appendChild(a);
+      a.select();
+      document.execCommand("copy");
+      document.body.removeChild(a);
+    })(hotlineNumber);
     alert("নম্বর কপি হয়েছে" + " " + hotlineNumber)
+
     const copyCount = getElement("copy-count").innerText;
     const updatedCopyCount = Number(copyCount) + 1;
     document.getElementById("copy-count").innerText = updatedCopyCount;
   })
 }
+
+
+
+
 
 const heartIcons = document.getElementsByClassName("fa-heart");
 
@@ -71,5 +84,4 @@ for(let heartIcon of heartIcons){
     getElement("heart-count").innerText = updatedHeartCount;
   })
 }
-
 
