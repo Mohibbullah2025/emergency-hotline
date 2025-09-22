@@ -38,3 +38,10 @@ for(let serviceBtn of serviceBtns){
     historyContainer.appendChild(newHistory);
   })
 }
+
+
+document.getElementById("btn-clear").addEventListener("click", function(){
+  const callHistoryContainer = getElement("call-history")
+    callHistoryContainer.innerHTML = ""
+
+})
