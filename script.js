@@ -45,3 +45,31 @@ document.getElementById("btn-clear").addEventListener("click", function(){
     callHistoryContainer.innerHTML = ""
 
 })
+
+
+// copy button activity
+
+const copyBtns = document.getElementsByClassName("btn-copy");
+
+for(let copyBtn of copyBtns){
+  copyBtn.addEventListener("click", function(){
+    const hotlineNumber = copyBtn.parentNode.parentNode.children[3].innerText;
+    
+    alert("নম্বর কপি হয়েছে" + " " + hotlineNumber)
+    const copyCount = getElement("copy-count").innerText;
+    const updatedCopyCount = Number(copyCount) + 1;
+    document.getElementById("copy-count").innerText = updatedCopyCount;
+  })
+}
+
+const heartIcons = document.getElementsByClassName("fa-heart");
+
+for(let heartIcon of heartIcons){
+  heartIcon.addEventListener("click", function(){
+    const heartCount = getElement("heart-count").innerText;
+    const updatedHeartCount =Number( heartCount) + 1;
+    getElement("heart-count").innerText = updatedHeartCount;
+  })
+}
+
+
